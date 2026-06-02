@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using SistemaFuncionarios.Domain.Entities;
+﻿using SistemaFuncionarios.Domain.Entities;
 
-namespace SistemaFuncionarios.Domain.Interface {
+namespace SistemaFuncionarios.Domain.Interfaces {
     public interface IFuncionarioRepository {
 
         Task<IEnumerable<Funcionario>> GetAllAsync();
@@ -12,6 +9,5 @@ namespace SistemaFuncionarios.Domain.Interface {
         Task UpdateAsync(Funcionario funcionario);
         Task DeleteAsync(int id);
         Task<bool> CPFExisteAsync(string cpf);
-
     }
 }
