@@ -8,6 +8,6 @@ namespace SistemaFuncionarios.Domain.Interfaces {
         Task AddAsync(Funcionario funcionario);
         Task UpdateAsync(Funcionario funcionario);
         Task DeleteAsync(int id);
-        Task<bool> CPFExisteAsync(string cpf);
+        Task<bool> CpfExisteAsync(string cpf);
     }
 }
