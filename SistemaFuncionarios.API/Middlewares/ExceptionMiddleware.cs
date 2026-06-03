@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using SistemaFuncionarios.Domain.Exceptions;
+using System.Net;
 using System.Text.Json;
 
 namespace SistemaFuncionarios.API.Middlewares {
@@ -22,7 +23,12 @@ namespace SistemaFuncionarios.API.Middlewares {
         private static async Task HandleExceptionAsync (HttpContext context, Exception ex) {
 
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            context.Response.StatusCode = ex switch {
+                NotFoundException => (int)HttpStatusCode.NotFound,
+                DuplicateException => (int)HttpStatusCode.Conflict,
+                DomainException => (int)HttpStatusCode.BadRequest,
+                _ => (int)HttpStatusCode.InternalServerError
+            };
 
             var response = new {
                 status = context.Response.StatusCode,

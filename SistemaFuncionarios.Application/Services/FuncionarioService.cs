@@ -1,11 +1,7 @@
 ﻿using SistemaFuncionarios.Application.DTOs;
 using SistemaFuncionarios.Domain.Entities;
 using SistemaFuncionarios.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SistemaFuncionarios.Domain.Exceptions;
 
 namespace SistemaFuncionarios.Application.Services {
     public class FuncionarioService {
@@ -52,11 +48,11 @@ namespace SistemaFuncionarios.Application.Services {
 
         public async Task AddAsync(CreateFuncionarioDTO dto) {
             if (await _funcionarioRepository.CpfExisteAsync(dto.Cpf))
-                throw new Exception("CPF já cadastrado");
+                throw new DuplicateException("CPF já cadastrado");
 
             var departamento = await _departamentoRepository.GetByIdAsync(dto.DepartamentoId);
             if (departamento == null)
-                throw new Exception("Departamento não encontrado");
+                throw new NotFoundException("Departamento não encontrado");
 
             var funcionario = new Funcionario {
                 Nome = dto.Nome,
@@ -73,11 +69,11 @@ namespace SistemaFuncionarios.Application.Services {
         public async Task UpdateAsync(int id, UpdateFuncionarioDTO dto) {
             var funcionario = await _funcionarioRepository.GetByIdAsync(id);
             if (funcionario == null)
-                throw new Exception("Funcionário não encontrado");
+                throw new NotFoundException("Funcionário não encontrado");
 
             var departamento = await _departamentoRepository.GetByIdAsync(dto.DepartamentoId);
             if (departamento == null)
-                throw new Exception("Departamento não encontrado");
+                throw new NotFoundException("Departamento não encontrado");
 
             funcionario.Nome = dto.Nome;
             funcionario.Email = dto.Email;
@@ -90,7 +86,7 @@ namespace SistemaFuncionarios.Application.Services {
         public async Task DeleteAsync(int id) {
             var funcionario = await _funcionarioRepository.GetByIdAsync(id);
             if (funcionario == null)
-                throw new Exception("Funcionário não encontrado");
+                throw new NotFoundException("Funcionário não encontrado");
 
             await _funcionarioRepository.DeleteAsync(id);
         }

@@ -1,12 +1,7 @@
 ﻿using SistemaFuncionarios.Application.DTOs;
 using SistemaFuncionarios.Domain.Entities;
+using SistemaFuncionarios.Domain.Exceptions;
 using SistemaFuncionarios.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaFuncionarios.Application.Services {
     public class DepartamentoService {
@@ -52,7 +47,7 @@ namespace SistemaFuncionarios.Application.Services {
             {
                 var departamento = await _departamentoRepository.GetByIdAsync(id);
                 if (departamento == null)
-                    throw new Exception("Departamento não encontrado");
+                    throw new NotFoundException("Departamento não encontrado");
 
                 departamento.Nome = dto.Nome;
                 departamento.Descricao = dto.Descricao;
@@ -63,7 +58,7 @@ namespace SistemaFuncionarios.Application.Services {
         public async Task DeleteAsync(int id) {
             var departamento = await _departamentoRepository.GetByIdAsync(id);
             if (departamento == null)
-                throw new Exception("Departamento não encontrado");
+                throw new NotFoundException("Departamento não encontrado");
 
             await _departamentoRepository.DeleteAsync(id);
         }
