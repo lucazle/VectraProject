@@ -1,4 +1,8 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Dockefile" />
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Project Path="SistemaFuncionarios.API/SistemaFuncionarios.API.csproj" />
   <Project Path="SistemaFuncionarios.Application/SistemaFuncionarios.Application.csproj" />
   <Project Path="SistemaFuncionarios.Domain/SistemaFuncionarios.Domain.csproj" />
