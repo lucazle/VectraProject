@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="SistemaFuncionarios.API/SistemaFuncionarios.API.csproj" />
+  <Project Path="SistemaFuncionarios.Application/SistemaFuncionarios.Application.csproj" />
+  <Project Path="SistemaFuncionarios.Domain/SistemaFuncionarios.Domain.csproj" />
+  <Project Path="SistemaFuncionarios.Infrastructure/SistemaFuncionarios.Infrastructure.csproj" />
+</Solution>
