@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SistemaFuncionarios.Application.Services {
-    internal class DepartamentoService {
+    public class DepartamentoService {
 
         private readonly IDepartamentoRepository _departamentoRepository;
 
