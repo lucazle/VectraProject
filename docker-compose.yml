@@ -3,7 +3,7 @@ services:
     image: mysql:8.0
     container_name: mysql_funcionarios
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: sistema_funcionarios
     ports:
       - "3307:3306"
@@ -22,7 +22,7 @@ services:
       db:
         condition: service_healthy
     environment:
-      ConnectionStrings__DefaultConnection: "Server=db;Port=3306;Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_ROOT_PASSWORD};"
+      ConnectionStrings__DefaultConnection: "Server=db;Port=3306;Database=sistema_funcionarios;User=${MYSQL_USER};Password=${MYSQL_ROOT_PASSWORD};"
     ports:
       - "8080:8080"
 
