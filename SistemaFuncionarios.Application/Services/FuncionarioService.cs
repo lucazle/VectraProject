@@ -50,6 +50,9 @@ namespace SistemaFuncionarios.Application.Services {
             if (await _funcionarioRepository.CpfExisteAsync(dto.Cpf))
                 throw new DuplicateException("CPF já cadastrado");
 
+            if (await _funcionarioRepository.EmailExisteAsync(dto.Email))
+                throw new DuplicateException("Email já cadastrado");
+
             var departamento = await _departamentoRepository.GetByIdAsync(dto.DepartamentoId);
             if (departamento == null)
                 throw new NotFoundException("Departamento não encontrado");

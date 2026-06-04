@@ -46,5 +46,9 @@ namespace SistemaFuncionarios.Infrastructure.Repositories {
             return await _context.Funcionarios
                 .AnyAsync(f => f.Cpf == cpf);
         }
+        public async Task<bool> EmailExisteAsync(string email) {
+            return await _context.Funcionarios
+                .AnyAsync(f => f.Email == email);
+        }
     }
 }

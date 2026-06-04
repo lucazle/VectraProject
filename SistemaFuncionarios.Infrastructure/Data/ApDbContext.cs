@@ -16,7 +16,7 @@ namespace SistemaFuncionarios.Infrastructure.Data {
                 entity.Property(f => f.Nome).IsRequired().HasMaxLength(100);
                 entity.Property(f => f.Cpf).IsRequired().HasMaxLength(11);
                 entity.HasIndex(f => f.Cpf).IsUnique();
-                entity.Property(f => f.Email).IsRequired().HasMaxLength(100);
+                entity.HasIndex(f => f.Email).IsUnique();
                 entity.Property(f => f.Salario).HasPrecision(10, 2);
                 entity.HasOne(f => f.Departamento)
                       .WithMany(d => d.Funcionarios)

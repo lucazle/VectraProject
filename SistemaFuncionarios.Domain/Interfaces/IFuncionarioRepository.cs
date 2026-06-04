@@ -9,5 +9,6 @@ namespace SistemaFuncionarios.Domain.Interfaces {
         Task UpdateAsync(Funcionario funcionario);
         Task DeleteAsync(int id);
         Task<bool> CpfExisteAsync(string cpf);
+        Task<bool> EmailExisteAsync(string email);
     }
 }
