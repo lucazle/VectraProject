@@ -1,8 +1,14 @@
 ﻿namespace SistemaFuncionarios.Domain.Entities {
     public class Funcionario {
-        public int Id { get; set; }
+
+        public Funcionario (string cpf) {
+            Cpf = cpf;
+        }
+        protected Funcionario() { }
+
+        public int Id { get; private set; }
         public string Nome { get; set; } = string.Empty;
-        public string Cpf { get; set; } = string.Empty;
+        public string Cpf { get; private set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public decimal Salario { get; set; }
         public DateTime DataAdmissao { get; set; }

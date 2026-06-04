@@ -57,9 +57,8 @@ namespace SistemaFuncionarios.Application.Services {
             if (departamento == null)
                 throw new NotFoundException("Departamento não encontrado");
 
-            var funcionario = new Funcionario {
+            var funcionario = new Funcionario (dto.Cpf){
                 Nome = dto.Nome,
-                Cpf = dto.Cpf,
                 Email = dto.Email,
                 Salario = dto.Salario,
                 DataAdmissao = dto.DataAdmissao,

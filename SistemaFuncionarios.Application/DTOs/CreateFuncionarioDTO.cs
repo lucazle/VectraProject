@@ -14,7 +14,7 @@ namespace SistemaFuncionarios.Application.DTOs {
         public string Nome { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "CPF é obrigatório.")]
-        [StringLength(11, ErrorMessage = "CPF deve ter 11 dígitos.")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "CPF deve ter 11 dígitos.")]
         public string Cpf { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Email é obrigatório.")]
