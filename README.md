@@ -129,6 +129,7 @@ Embora o projeto atenda os requisitos propostos, algumas melhorias poderiam ser 
 - **Teste automatizados** - Adicionar testes unitários para validas as regras de negócio implementadas no Service e testes de integração para verificar o comportamento dos endpoints da API, isso aumenta a confiabilidade na aplicação e facilita futuras manutenções.
 - **Autorização e autenticação** - Implementar um controle de acesso baseado em perfis de usuário e implementa autenticação com JWT.
 - **Paginação e filtro** - Adicionar paginação, ordenação e filtro nos endpoints para melhorar a escalabilidade das listagens.
+- **Revisão das regras de exclusão** - Reavaliar o comportamento de exclusão em cascata entre departamentos e funcionários para garantir que as regras de negócio sejam atendidas da forma mais adequada.
 
 ## Considerações Finais 
 
